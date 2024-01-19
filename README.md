@@ -434,6 +434,9 @@ cmake -B build -DWHISPER_CLBLAST=ON
 cmake --build build -j --config Release
 ```
 
+There is also an alternate experimental OpenCL support via the CLBlast Netlib BLAS API which is slightly less performant but potentialy more compatible with older devices or ones that support only the OpenCL 1.x EMBEDDED PROFILE. Useful when other types of GPU acceleration do not work. 
+
+To make use of this, first build and install CLBlast with the DNETLIB=ON CMake flag set to enable the Netlib API. Then follow the instructions above to build `whisper.cpp` but replacing ```WHISPER_CLBLAST=1 or -DWHISPER_CLBLAST=ON``` with ```WHISPER_CLBLAST_NETLIB=1 or -DWHISPER_CLBLAST_NETLIB=ON```
 
 Run all the examples as usual.
 
